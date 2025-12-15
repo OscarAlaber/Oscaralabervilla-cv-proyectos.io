@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Óscar Alaber Villa - Diseñador Gráfico, Desarrollador Web Front-end, Marketing Digital y Fotografía Profesional">
+    <meta name="keywords" content="diseño gráfico, desarrollo web, front-end, marketing digital, fotografía, retoque fotográfico, Madrid">
+    <meta name="author" content="Óscar Alaber Villa">
+    <title>Óscar Alaber Villa | CV y Portafolio Interactivo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        /* =========================================
+           VARIABLES Y ESTILOS GLOBALES
+        ========================================= */
+        :root {
+            --bg-light: #f4f5f9;
+            --bg-card: #ffffff;
+            --text-primary: #1c1c1c;
+            --text-secondary: #7E8794;
+            --text-muted: #6e6e73;
+            --accent-blue: #155eae;
+            --accent-blue-light: #3f9fff;
+            --accent-green: #00b78d;
+            --accent-gold: #d4a574;
+            --border-color: #e5e5e5;
+            --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-main: 'Poppins', sans-serif;
+        }
+
+        .dark-mode {
+            --bg-light: #121212;
+            --bg-card: #1f1f1f;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --text-muted: #888;
+            --border-color: #333;
+            --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-light);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* =========================================
+           HEADER
+        ========================================= */
+        .site-header {
+            text-align: center;
+            padding: 3rem 1.5rem 2rem;
+            position: relative;
+            background: var(--bg-card);
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem;
+            color: var(--text-secondary);
+            border-radius: 50%;
+            border: 2px solid var(--text-secondary);
+            background: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: white;
+        }
+
+        .theme-toggle svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            display: block;
+        }
+
+        .theme-toggle__icon--hidden {
+            display: none;
+        }
+
+        .avatar {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+
+        .avatar__image {
+            position: absolute;
+            inset: 0;
+            background: url('img/oscar_alaber_villa.png') no-repeat center center;
+            background-size: cover;
+            animation: morph 8s ease-in-out infinite;
+            box-shadow: inset 0 0 0 8px var(--text-secondary);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        }
+
+        .site-header__title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .site-header__subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .site-header__links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .site-header__links img {
+            height: 45px;
+            transition: var(--transition);
+        }
+
+        .site-header__links img:hover {
+            transform: translateY(-3px);
+        }
+
+        /* =========================================
+           NAVEGACIÓN
+        ========================================= */
+        nav {
+            background: var(--bg-card);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-soft);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        /* =========================================
+           SECCIONES
+        ========================================= */
+        .section {
+            padding: 4rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-color);
+        }
+
+        /* =========================================
+           SOBRE MÍ
+        ========================================= */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .about-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .about-section__title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .about-section__list {
+            list-style: none;
+            color: var(--text-muted);
+        }
+
+        .about-section__list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .about-section__list img {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .about-section__list strong {
+            color: var(--text-secondary);
+            display: block;
+        }
+
+        /* Botones de contacto */
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .btn--primary {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .btn--primary:hover {
+            background: #0d4a8a;
+            transform: translateY(-2px);
+        }
+
+        .btn--outline {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 2px solid var(--text-secondary);
+        }
+
+        .btn--outline:hover {
+            background: var(--text-secondary);
+            color: white;
+        }
+
+        /* Contact Bubble */
+        .contact-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-bubble {
+            position: absolute;
+            top: calc(100% + 15px);
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            background: var(--bg-card);
+            border: 2px solid var(--accent-blue);
+            border-radius: 16px;
+            padding: 0;
+            min-width: 0;
+            box-shadow: var(--shadow-hover);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 200;
+            overflow: hidden;
+        }
+
+        .contact-bubble::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 12px solid var(--accent-blue);
+        }
+
+        .contact-bubble::after {
+            content: '';
+            position: absolute;
+            top: -9px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid var(--bg-card);
+        }
+
+        .contact-bubble.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) scale(1);
+            padding: 1rem;
+            min-width: 260px;
+        }
+
+        .contact-bubble__item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-muted);
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            background: var(--bg-light);
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .contact-bubble__item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-bubble__item:hover {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .contact-bubble__icon {
+            font-size: 1.25rem;
+        }
+
+        .contact-bubble__label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            display: block;
+        }
+
+        .contact-bubble__value {
+            font-weight: 500;
+        }
+
+        .contact-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 150;
+            display: none;
+        }
+
+        .contact-overlay.active {
+            display: block;
+        }
+
+        /* =========================================
+           LO QUE HAGO (Skills)
+        ========================================= */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .skills-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            padding: 1.25rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .skill-card__image {
+            width: 100%;
+            max-width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-card__title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* =========================================
+           PROCESOS DE TRABAJO
+        ========================================= */
+        .processes-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .processes-nav__btn {
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            border: 2px solid var(--text-secondary);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .processes-nav__btn:hover,
+        .processes-nav__btn.active {
+            background: var(--accent-blue);
+            color: white;
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .phases-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .phases-nav__btn {
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .phases-nav__btn:hover,
+        .phases-nav__btn.active {
+            background: var(--text-secondary);
+            color: white;
+            border-color: var(--text-secondary);
+        }
+
+        .process-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        @media (min-width: 768px) {
+            .process-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .process-details {
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .process-details.loading {
+            opacity: 0.3;
+            transform: translateY(10px);
+        }
+
+        .process-details__title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .process-details__summary {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .process-details__section {
+            margin-bottom: 1.5rem;
+        }
+
+        .process-details__section h5 {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .process-details__list {
+            list-style: none;
+            color: var(--text-muted);
+        }
+
+        .process-details__list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .process-details__list li::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        .deliverables-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .deliverable-tag {
+            background: #e0e7ff;
+            color: #4338ca;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+        }
+
+        .dark-mode .deliverable-tag {
+            background: #312e81;
+            color: #c7d2fe;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 350px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .chart-label {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* =========================================
+           PORTFOLIO
+        ========================================= */
+        .portfolio-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--text-muted);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+        }
+
+        .portfolio-item {
+            background: var(--bg-card);
+            padding: 1.5rem 1rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .portfolio-item__logo {
+            width: 150px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+        }
+
+        .portfolio-item__title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* =========================================
+           FACTORES TRANSVERSALES
+        ========================================= */
+        .transversal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .transversal-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .transversal-card {
+            background: var(--bg-card);
+            padding: 1.25rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .transversal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-blue);
+        }
+
+        .transversal-card__icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .transversal-card__title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* =========================================
+           MODALES
+        ========================================= */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal__content {
+            background: var(--bg-card);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow: hidden;
+            animation: slideUp 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--bg-light);
+        }
+
+        .modal__title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        .modal__close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            line-height: 1;
+            transition: var(--transition);
+        }
+
+        .modal__close:hover {
+            color: #e74c3c;
+        }
+
+        .modal__body {
+            padding: 1.5rem;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .modal__body p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .modal__body ul {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .modal__body li {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .modal__body li::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        .modal__body strong {
+            color: var(--text-secondary);
+        }
+
+        /* Portfolio Modal Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--bg-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item__caption {
+            padding: 0.75rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(0, 0, 0, 0.98);
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox__content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .lightbox__image {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox__close {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .lightbox__close:hover {
+            opacity: 1;
+        }
+
+        .lightbox__nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lightbox__nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox__prev { left: -70px; }
+        .lightbox__next { right: -70px; }
+
+        .lightbox__counter {
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox__nav {
+                display: none;
+            }
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+        footer {
+            background: var(--bg-card);
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* =========================================
+           FORMULARIO DE CONTACTO
+        ========================================= */
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(21, 94, 174, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover {
+            background: #0d4a8a;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================= -->
+    <header class="site-header">
+        <button class="theme-toggle" id="themeToggle">
+            <svg id="sunIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+            <svg id="moonIcon" class="theme-toggle__icon--hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+        </button>
+
+        <div class="avatar">
+            <div class="avatar__image"></div>
+        </div>
+
+        <h1 class="site-header__title">Óscar Alaber Villa</h1>
+        <p class="site-header__subtitle">Diseñador Gráfico · Desarrollador Web Front-end<br>Marketing digital · Fotografía y retoque profesional</p>
+
+        <div class="site-header__links">
+            <a href="https://upwork.com/freelancers/~01ae4dee8c64d93296" target="_blank">
+                <img src="img/freelance/upwork.png" alt="Upwork">
+            </a>
+            <a href="https://www.malt.es/profile/oscaralaber1" target="_blank">
+                <img src="img/freelance/malt.png" alt="Malt">
+            </a>
+            <img src="img/freelance/pronto-pro.png" alt="ProntoPro">
+        </div>
+    </header>
+
+    <!-- =========================================
+         NAVEGACIÓN
+    ========================================= -->
+    <nav>
+        <ul>
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#skills">Lo que hago</a></li>
+            <li><a href="#procesos">Procesos</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#transversales">Factores Clave</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- =========================================
+         CONTENIDO PRINCIPAL
+    ========================================= -->
+    <main>
+        <!-- SOBRE MÍ -->
+        <section id="sobre-mi" class="section">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="card">
+                <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--text-muted);">
+                    Diseñador gráfico y desarrollador web con más de 18 años de experiencia. Mi trayectoria comenzó en las artes gráficas, trabajando para editoriales, lo que me otorgó una base sólida en producción visual. Desde 2020, he realizado una transición exitosa al mundo digital, especializándome en desarrollo front-end, diseño UI/UX y Marketing digital.
+                </p>
+
+                <div class="about-grid">
+                    <div>
+                        <h3 class="about-section__title">Datos de Contacto</h3>
+                        <div class="contact-buttons">
+                            <a href="https://es.linkedin.com/in/oscaralaber" target="_blank" class="btn btn--primary">
+                                💼 LinkedIn
+                            </a>
+                            <div class="contact-wrapper">
+                                <button class="btn btn--outline" id="contactToggle">
+                                    📞 Contacto
+                                </button>
+                                <div class="contact-bubble" id="contactBubble">
+                                    <a href="tel:+34635770952" class="contact-bubble__item">
+                                        <span class="contact-bubble__icon">📞</span>
+                                        <span>
+                                            <span class="contact-bubble__label">Teléfono</span>
+                                            <span class="contact-bubble__value">+34 635 77 09 52</span>
+                                        </span>
+                                    </a>
+                                    <a href="mailto:oalaber@icloud.com" class="contact-bubble__item">
+                                        <span class="contact-bubble__icon">✉️</span>
+                                        <span>
+                                            <span class="contact-bubble__label">Email</span>
+                                            <span class="contact-bubble__value">oalaber@icloud.com</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="contact-overlay" id="contactOverlay"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="about-section__title">Formación</h3>
+                        <ul class="about-section__list">
+                            <li>
+                                <img src="img/freelance/salesianos-atocha.jpeg" alt="Salesianos">
+                                <span>
+                                    <strong>Salesianos de Atocha</strong>
+                                    Diseño y Artes Gráficas (2004-2006)
+                                </span>
+                            </li>
+                            <li>
+                                <img src="img/freelance/cice.jpg" alt="CICE">
+                                <span>
+                                    <strong>CICE, Escuela de nuevas tecnologías</strong>
+                                    Master en Diseño y Desarrollo Web (2018-2020)
+                                </span>
+                            </li>
+                            <li>
+                                <img src="img/freelance/lagasca-serrano.jpg" alt="Lagasca">
+                                <span>
+                                    <strong>Escuela Lagasca Serrano</strong>
+                                    Certificación Oficial creación web (2025)
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LO QUE HAGO -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Lo que hago</h2>
+            <div class="card">
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem; color: var(--text-muted);">
+                    Mi experiencia profesional se expande en diversas áreas de la creatividad y el desarrollo web Front-End.
+                </p>
+                <div class="skills-grid" id="skillsGrid">
+                    <!-- Generado por JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESOS DE TRABAJO -->
+        <section id="procesos" class="section">
+            <h2 class="section-title">Los procesos de mi Trabajo</h2>
+            
+            <nav class="processes-nav" id="processesNav">
+                <button class="processes-nav__btn active" data-section="webDevelopment">Desarrollo Web</button>
+                <button class="processes-nav__btn" data-section="graphicDesign">Diseño Gráfico</button>
+                <button class="processes-nav__btn" data-section="digitalMarketing">Marketing Digital</button>
+                <button class="processes-nav__btn" data-section="offlineDesign">Diseño Offline</button>
+            </nav>
+
+            <div class="card">
+                <div id="processNavigator" style="margin-bottom: 2rem;">
+                    <h3 id="sectionTitleDisplay" class="section-title" style="font-size: 1.5rem; margin-bottom: 0.5rem;"></h3>
+                    <p id="sectionSummaryDisplay" style="text-align: center; max-width: 700px; margin: 0 auto 2rem; color: var(--text-muted);"></p>
+                    <div class="phases-nav" id="phasesNav"></div>
+                </div>
+
+                <div class="process-content">
+                    <div class="process-details" id="processDetails">
+                        <h4 class="process-details__title" id="phaseTitle"></h4>
+                        <p class="process-details__summary" id="phaseSummary"></p>
+                        
+                        <div class="process-details__section">
+                            <h5>Objetivos Principales</h5>
+                            <ul class="process-details__list" id="phaseObjectives"></ul>
+                        </div>
+
+                        <div class="process-details__section">
+                            <h5>Entregables Clave</h5>
+                            <div class="deliverables-tags" id="phaseDeliverables"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h5 style="font-weight: 600; text-align: center; margin-bottom: 1rem; color: var(--text-secondary);">Distribución de Esfuerzo</h5>
+                        <div class="chart-container">
+                            <canvas id="effortChart"></canvas>
+                        </div>
+                        <p class="chart-label">Enfoque relativo del proyecto en cada etapa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section id="portfolio" class="section">
+            <h2 class="section-title">Portfolio de Proyectos</h2>
+            <p class="portfolio-intro">Una muestra de mi trabajo en periódicos, editoriales, agencias y proyectos web. Haz clic en cada logo para ver más detalles.</p>
+            
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Generado por JavaScript -->
+            </div>
+        </section>
+
+        <!-- FACTORES TRANSVERSALES -->
+        <section id="transversales" class="section">
+            <h2 class="section-title">Factores Críticos Transversales<br><small style="font-weight: 400; font-size: 0.6em;">Siempre a tener en cuenta</small></h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem; color: var(--text-muted);">
+                Estos elementos son vitales durante todo el ciclo de vida de cualquier proyecto profesional.
+            </p>
+            <div class="transversal-grid" id="transversalGrid">
+                <!-- Generado por JavaScript -->
+            </div>
+        </section>
+
+        <!-- CONTACTO 
+        <section id="contacto" class="section">
+            <h2 class="section-title">Contacto</h2>
+            <div class="card">
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: 1.5rem;">
+                    ¿Tienes un proyecto en mente? ¡Hablemos!
+                </p>
+                <form class="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="Para poder responderte" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <input type="text" id="subject" name="subject" placeholder="Ej: Propuesta de colaboración" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" placeholder="Hola, te contacto porque..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>-->
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Óscar Alaber Villa. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- =========================================
+         MODALES
+    ========================================= -->
+    
+    <!-- Modal Genérico (Skills y Transversales) -->
+    <div class="modal" id="textModal">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2 class="modal__title" id="textModalTitle"></h2>
+                <button class="modal__close" data-close-modal>&times;</button>
+            </div>
+            <div class="modal__body" id="textModalBody"></div>
+        </div>
+    </div>
+
+    <!-- Modal Portfolio -->
+    <div class="modal" id="portfolioModal">
+        <div class="modal__content" style="max-width: 900px;">
+            <div class="modal__header">
+                <h2 class="modal__title" id="portfolioModalTitle"></h2>
+                <button class="modal__close" data-close-modal>&times;</button>
+            </div>
+            <div class="modal__body">
+                <div class="gallery-grid" id="portfolioGallery"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox__content">
+            <button class="lightbox__close" id="lightboxClose">&times;</button>
+            <button class="lightbox__nav lightbox__prev" id="lightboxPrev">❮</button>
+            <img src="" alt="" class="lightbox__image" id="lightboxImage">
+            <button class="lightbox__nav lightbox__next" id="lightboxNext">❯</button>
+            <div class="lightbox__counter" id="lightboxCounter"></div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // =========================================
+        // DATOS DE LA APLICACIÓN
+        // =========================================
+        const appData = {
+            skills: [
+                { id: 'disenoEditorial', title: 'Editorial', image: 'img/news/editorial.png', description: 'La habilidad de maquetar y diseñar publicaciones impresas y digitales, como periódicos, revistas y libros.', points: ['Maquetación avanzada con software de la industria.', 'Gestión de tipografía y jerarquía visual.', 'Preparación de archivos para imprenta.', 'Creación de portadas y diseño de interiores.'] },
+                { id: 'disenoWeb', title: 'Web', image: 'img/news/customweb.png', description: 'Desarrollo de sitios web atractivos y funcionales que combinan estética, experiencia de usuario y tecnología.', points: ['Diseño y desarrollo Front-end.', 'Creación de maquetas y prototipos interactivos.', 'Integración con CMS (WordPress).', 'Optimización para velocidad y rendimiento.'] },
+                { id: 'uxUi', title: 'UX / UI', image: 'img/news/ux-ui.png', description: 'Creación de interfaces de usuario intuitivas y experiencias de usuario fluidas.', points: ['Investigación de usuario y creación de personas.', 'Diseño de flujos de usuario y prototipado.', 'Creación de wireframes y mockups.', 'Pruebas de usabilidad.'] },
+                { id: 'disenoPublicitario', title: 'Publicitario', image: 'img/news/publicitario.png', description: 'Creación de materiales gráficos para campañas publicitarias.', points: ['Diseño de banners y anuncios digitales.', 'Creación de vallas publicitarias y folletos.', 'Desarrollo de conceptos creativos.', 'Adaptación a diferentes formatos.'] },
+                { id: 'disenoOffline', title: 'Offline', image: 'img/news/diseno-offline.png', description: 'Creación de piezas gráficas para el mundo físico.', points: ['Diseño de identidad corporativa.', 'Materiales de marketing impresos.', 'Desarrollo de packaging.', 'Supervisión de producción.'] },
+                { id: 'seoSem', title: 'SEO / SEM', image: 'img/news/seo_sem.png', description: 'Estrategias para mejorar la visibilidad en motores de búsqueda.', points: ['Auditoría SEO on-page y off-page.', 'Investigación de palabras clave.', 'Gestión de campañas Google Ads.', 'Análisis y optimización.'] },
+                { id: 'fotografiaProfesional', title: 'Fotografía', image: 'img/news/fotografia.png', description: 'Captura de imágenes de alta calidad para marketing y diseño.', points: ['Fotografía de producto y retratos.', 'Composición y dirección artística.', 'Manejo de iluminación.', 'Conceptualización de sesiones.'] },
+                { id: 'retoqueFotografico', title: 'Retoque', image: 'img/news/retoque-fotografico.png', description: 'Edición y mejora de imágenes digitalmente.', points: ['Corrección de color y tono.', 'Retoque avanzado de piel.', 'Composición y fotomontaje.', 'Preparación para impresión y web.'] },
+                { id: 'redesSociales', title: 'Redes Sociales', image: 'img/news/marketingredessociales.png', description: 'Planificación y ejecución de estrategias de marketing en redes.', points: ['Creación y gestión de contenido.', 'Gestión de comunidad.', 'Analítica y monitorización.', 'Publicidad digital.'] },
+                { id: 'emailMarketing', title: 'Emailing', image: 'img/news/emailing.png', description: 'Estrategias de comunicación a través de correos electrónicos.', points: ['Diseño de campañas y newsletters.', 'Gestión de bases de datos.', 'Automatización de flujos.', 'Análisis y optimización.'] }
+            ],
+            
+            portfolio: [
+                { id: 'empresa1', title: '20 Minutos', logo: 'img/logotipos_empresas/20minutos.png', media: [
+                    { src: 'img/portfolio/20m/1.jpg', caption: 'Diseño y tratamiento de imagen' },
+                    { src: 'img/portfolio/20m/1-1.jpg', caption: 'Diseño y tratamiento de imagen' },
+                    { src: 'img/portfolio/20m/2.jpg', caption: 'Diseño y tratamiento de imagen' },
+                    { src: 'img/portfolio/20m/2-2.jpg', caption: 'Diseño y tratamiento de imagen' },
+                    { src: 'img/portfolio/20m/3.jpg', caption: 'Diseño y tratamiento de imagen' },
+                    { src: 'img/portfolio/20m/4.jpg', caption: 'Diseño y tratamiento de imagen' },
+                    { src: 'img/portfolio/20m/5.jpg', caption: 'Diseño y tratamiento de imagen' },
+                    { src: 'img/portfolio/20m/6.jpg', caption: 'Diseño y tratamiento de imagen' }
+                ]},
+                { id: 'empresa2', title: 'Marca', logo: 'img/logotipos_empresas/2.png', media: [
+                    { src: 'img/portfolio/marca/1.png', caption: 'Diseño y tratamiento fotográfico' },
+                    { src: 'img/portfolio/marca/3.png', caption: 'Diseño y tratamiento fotográfico' },
+                    { src: 'img/portfolio/marca/4.png', caption: 'Diseño y tratamiento fotográfico' },
+                    { src: 'img/portfolio/marca/5.png', caption: 'Diseño y tratamiento fotográfico' }
+                ]},
+                { id: 'empresa3', title: 'Expansión', logo: 'img/logotipos_empresas/expansion.jpg', media: [
+                    { src: 'img/portfolio/expansion/1.png', caption: 'Diseño y tratamiento fotográfico' }
+                ]},
+                { id: 'empresa4', title: 'Diario Médico', logo: 'img/logotipos_empresas/diario_medico.png', media: [
+                    { src: 'img/portfolio/diario_medico/1.png', caption: 'Diseño y tratamiento de imagen' },
+                    { src: 'img/portfolio/diario_medico/2.png', caption: 'Diseño y tratamiento de imagen' }
+                ]},
+                { id: 'empresa5', title: 'Diplomacia', logo: 'img/logotipos_empresas/018.png', media: [
+                    { src: 'img/portfolio/diplomacia/1.png', caption: 'Diseño y tratamiento de imagen' },
+                    { src: 'img/portfolio/diplomacia/2.png', caption: 'Diseño y tratamiento de imagen' }
+                ]},
+                { id: 'empresa6', title: 'Trámite', logo: 'img/logotipos_empresas/tramite.png', media: [
+                    { src: 'img/portfolio/tramite/1.png', caption: 'Diseño y tratamiento de imagen' },
+                    { src: 'img/portfolio/tramite/2.png', caption: 'Diseño y tratamiento de imagen' }
+                ]},
+                { id: 'empresa7', title: 'Atrápalo', logo: 'img/logotipos_empresas/logoAtrapalo.png', media: [
+                    { src: 'img/portfolio/publicidad/Atrapalo/1.gif', caption: 'Banner publicidad' },
+                    { src: 'img/portfolio/publicidad/Atrapalo/2.gif', caption: 'Banner publicidad' },
+                    { src: 'img/portfolio/publicidad/Atrapalo/3.gif', caption: 'Banner publicidad' },
+                    { src: 'img/portfolio/publicidad/Atrapalo/4.gif', caption: 'Banner publicidad' },
+                    { src: 'img/portfolio/publicidad/Atrapalo/5.jpg', caption: 'Banner publicidad' },
+                    { src: 'img/portfolio/publicidad/Atrapalo/6.gif', caption: 'Banner publicidad' },
+                    { src: 'img/portfolio/publicidad/Atrapalo/7.gif', caption: 'Banner publicidad' }
+                ]},
+                { id: 'empresa8', title: 'Masquevapor', logo: 'img/logotipos_empresas/masquevapor.svg', media: [
+                    { src: 'img/portfolio/publicidad/masquevapor/2-1.jpeg', caption: 'Diseño publi Redes' },
+                    { src: 'img/portfolio/publicidad/masquevapor/1.jpeg', caption: 'Diseño Banner Web' }
+                ]},
+                { id: 'empresa9', title: 'Miplacer.net', logo: 'img/logotipos_empresas/logo-gris.png', media: [
+                    
+                    { src: 'img/portfolio/publicidad/miplacer/1.png', caption: 'Publicidad Metro' }
+                  
+                ] },
+                { id: 'empresa10', title: 'TuCaraMeSauna', logo: 'img/logotipos_empresas/0232.png', media: [ 
+                    { src: 'img/portfolio/TCMS/tcms1.png', caption: 'Banner publicidad' },
+                    { src: 'img/portfolio/TCMS/tcms2.png', caption: 'Banner publicidad' },
+                    { src: 'img/portfolio/TCMS/tcms3.png', caption: 'Banner publicidad' },
+                    { src: 'img/portfolio/TCMS/tcms4.png', caption: 'Banner publicidad' }
+                    
+                ] },
+                { id: 'empresa11', title: 'Inmoamp', logo: 'img/logotipos_empresas/inmoamp.png', media: [
+
+                ] }
+            ],
+            
+            transversals: [
+                { id: 'client_comm', title: 'Comunicación con Cliente', icon: '🤝', content: '<p>Una comunicación efectiva y constante con el cliente es fundamental.</p><ul><li><strong>Briefings Detallados:</strong> Comprensión profunda de las necesidades.</li><li><strong>Feedback Estructurado:</strong> Canales claros para revisiones.</li><li><strong>Gestión de Expectativas:</strong> Transparencia sobre plazos y costos.</li></ul>' },
+                { id: 'project_mgmt', title: 'Gestión de Proyectos', icon: '📊', content: '<p>Una gestión eficiente es clave para el éxito del proyecto.</p><ul><li><strong>Metodologías Ágiles:</strong> Enfoques iterativos y flexibles.</li><li><strong>Herramientas de Colaboración:</strong> Jira, Asana, Trello.</li><li><strong>Gestión Presupuestaria:</strong> Monitoreo y transparencia financiera.</li></ul>' },
+                { id: 'quality_perf', title: 'Calidad y Rendimiento', icon: '⚡️', content: '<p>Garantizar alta calidad y rendimiento óptimo.</p><ul><li><strong>Optimización SEO:</strong> Mejores prácticas desde el inicio.</li><li><strong>Velocidad de Carga:</strong> Optimización de activos y código.</li><li><strong>Seguridad:</strong> Medidas proactivas y cumplimiento.</li></ul>' },
+                { id: 'asset_mgmt', title: 'Gestión de Activos', icon: '🗂️', content: '<p>Organización meticulosa y respeto por derechos de autor.</p><ul><li><strong>Derechos y Licencias:</strong> Uso legal de recursos.</li><li><strong>Organización:</strong> Estructura lógica y control de versiones.</li><li><strong>Consistencia Visual:</strong> Color y tipografía uniformes.</li></ul>' },
+                { id: 'data_analytics', title: 'Análisis y Optimización', icon: '📈', content: '<p>Datos para decisiones informadas y mejora continua.</p><ul><li><strong>KPIs y Métricas:</strong> Indicadores clave de rendimiento.</li><li><strong>Pruebas A/B:</strong> Experimentos de optimización.</li><li><strong>Informes:</strong> Análisis claros y recomendaciones.</li></ul>' },
+                { id: 'adaptation_trends', title: 'Adaptación y Tendencias', icon: '🚀', content: '<p>Capacidad de adaptarse a las últimas tendencias.</p><ul><li><strong>Investigación:</strong> Nuevas tecnologías y enfoques.</li><li><strong>Flexibilidad:</strong> Ajuste según necesidades del mercado.</li><li><strong>Innovación:</strong> Explorar nuevas herramientas.</li></ul>' }
+            ],
+            
+            sections: {
+                webDevelopment: {
+                    title: 'Desarrollo Web',
+                    summary: 'Una exploración interactiva del proceso completo, desde la idea inicial hasta el lanzamiento y más allá.',
+                    phases: [
+                        { id: 'web_discovery', name: '1. Descubrimiento', title: 'Fase de Descubrimiento y Estrategia', summary: 'Esta fase inicial es fundamental para establecer una comprensión compartida y una dirección estratégica.', objectives: ['Análisis profundo de requisitos y objetivos.', 'Investigación del público objetivo.', 'Definición del alcance y viabilidad.', 'Establecimiento de KPIs.'], deliverables: ['DRP', 'Análisis Competencia', 'User Personas', 'Plan Inicial'] },
+                        { id: 'web_planning', name: '2. Planificación', title: 'Fase de Planificación y Arquitectura', summary: 'Estructurar el contenido y la experiencia del usuario de manera lógica.', objectives: ['Creación de mapa del sitio.', 'Diseño de flujos de usuario.', 'Desarrollo de wireframes.', 'Estrategia de contenido.'], deliverables: ['Sitemap', 'Wireframes', 'Flujos Usuario', 'Specs Técnicas'] },
+                        { id: 'web_design', name: '3. Diseño UX/UI', title: 'Fase de Diseño y Experiencia de Usuario', summary: 'Transformar wireframes en interfaz visualmente atractiva y funcional.', objectives: ['Diseño UX enfocado en usabilidad.', 'Creación de UI coherente.', 'Diseño responsivo y accesible.', 'Maquetas de alta fidelidad.'], deliverables: ['Mockups', 'Prototipos', 'Guía de Estilo', 'Diseño UI Final'] },
+                        { id: 'web_development', name: '4. Desarrollo', title: 'Fase de Desarrollo e Implementación', summary: 'La fase de construcción donde el diseño se convierte en código funcional.', objectives: ['Desarrollo Front-end.', 'Desarrollo Back-end.', 'Medidas de rendimiento y seguridad.', 'Integración de funcionalidades.'], deliverables: ['Código Fuente', 'Base de Datos', 'Integraciones', 'Entorno Dev'] },
+                        { id: 'web_testing', name: '5. Pruebas', title: 'Fase de Pruebas y Control de Calidad', summary: 'Proceso riguroso para garantizar calidad y experiencia óptima.', objectives: ['Pruebas funcionales.', 'Pruebas de usabilidad.', 'Compatibilidad cross-browser.', 'Pruebas de rendimiento.'], deliverables: ['Plan Pruebas', 'Reportes Errores', 'Informes QA', 'Aprobación UAT'] },
+                        { id: 'web_deployment', name: '6. Despliegue', title: 'Fase de Despliegue y Lanzamiento', summary: 'Publicación en producción con planificación meticulosa.', objectives: ['Configuración de servidor.', 'Migración de datos.', 'Configuración de monitoreo.', 'Verificación post-lanzamiento.'], deliverables: ['Servidor Config', 'SSL', 'Backup', 'Monitoreo'] },
+                        { id: 'web_maintenance', name: '7. Mantenimiento', title: 'Fase de Post-Lanzamiento', summary: 'Monitoreo, optimización y evolución continua.', objectives: ['Monitoreo de rendimiento.', 'Actualizaciones de seguridad.', 'Optimización CRO y SEO.', 'Soporte y mejoras.'], deliverables: ['Informes', 'Updates', 'Mejoras', 'Soporte'] }
+                    ],
+                    chartData: {
+                        labels: ['Estrategia', 'Creatividad', 'Implementación', 'Análisis', 'Gestión'],
+                        datasets: {
+                            web_discovery: [5, 2, 1, 1, 4], web_planning: [4, 3, 1, 1, 4], web_design: [2, 5, 2, 2, 3],
+                            web_development: [1, 2, 5, 3, 2], web_testing: [1, 1, 3, 5, 3], web_deployment: [1, 1, 4, 3, 4], web_maintenance: [3, 2, 3, 2, 3]
+                        }
+                    }
+                },
+                graphicDesign: {
+                    title: 'Diseño Gráfico',
+                    summary: 'Un proceso completo para la maquetación, fotografía digital y montajes creativos.',
+                    phases: [
+                        { id: 'gd_briefing', name: '1. Briefing', title: 'Fase de Briefing y Conceptualización', summary: 'Entender necesidades y definir dirección creativa.', objectives: ['Análisis de requisitos.', 'Investigación de referencias.', 'Desarrollo de conceptos.', 'Definición de alcance.'], deliverables: ['Briefing', 'Mood Board', 'Conceptos', 'Cronograma'] },
+                        { id: 'gd_content_prep', name: '2. Contenido Visual', title: 'Fase de Preparación de Contenido', summary: 'Recopilar o crear material visual necesario.', objectives: ['Planificación fotográfica.', 'Selección de imágenes.', 'Digitalización de recursos.', 'Control de calidad.'], deliverables: ['Plan Foto', 'Banco Imágenes', 'Archivos Raw', 'Activos'] },
+                        { id: 'gd_image_treatment', name: '3. Tratamiento', title: 'Fase de Tratamiento Digital', summary: 'Edición y mejora de fotografías y elementos gráficos.', objectives: ['Edición básica.', 'Retoque avanzado.', 'Máscaras y selecciones.', 'Optimización.'], deliverables: ['PSD/TIFF', 'JPG/PNG', 'Capas Ajuste', 'Presets'] },
+                        { id: 'gd_layout_design', name: '4. Maquetación', title: 'Fase de Diseño y Maquetación', summary: 'Combinar elementos en composición coherente.', objectives: ['Bocetos y wireframes.', 'Estructura visual.', 'Tipografías y colores.', 'Maquetación final.'], deliverables: ['Bocetos', 'Maquetas', 'Guía Estilo', 'Pruebas'] },
+                        { id: 'gd_creative_montage', name: '5. Montajes', title: 'Fase de Montajes Creativos', summary: 'Composiciones complejas y efectos visuales.', objectives: ['Integración de elementos.', 'Efectos especiales.', 'Collages digitales.', 'Coherencia visual.'], deliverables: ['Archivos PSD', 'Alta Resolución', 'Variaciones', 'Concepto Final'] },
+                        { id: 'gd_review_feedback', name: '6. Revisión', title: 'Fase de Revisión y Feedback', summary: 'Presentación y ajustes según retroalimentación.', objectives: ['Presentación formal.', 'Recopilación feedback.', 'Ajustes y revisiones.', 'Aprobación final.'], deliverables: ['Presentación', 'Feedback Doc', 'Revisiones', 'Aprobación'] },
+                        { id: 'gd_export_delivery', name: '7. Entrega', title: 'Fase de Exportación y Entrega', summary: 'Finalización y entrega de archivos.', objectives: ['Exportación en formatos finales.', 'Preparación para impresión.', 'Empaquetado de fuentes.', 'Entrega y cierre.'], deliverables: ['Archivos Finales', 'Fuentes', 'Guía Uso', 'Factura'] }
+                    ],
+                    chartData: {
+                        labels: ['Estrategia', 'Creatividad', 'Implementación', 'Análisis', 'Gestión'],
+                        datasets: {
+                            gd_briefing: [5, 2, 1, 1, 4], gd_content_prep: [2, 5, 1, 1, 3], gd_image_treatment: [1, 5, 2, 3, 2],
+                            gd_layout_design: [2, 4, 5, 2, 3], gd_creative_montage: [1, 5, 3, 2, 3], gd_review_feedback: [1, 1, 1, 5, 4], gd_export_delivery: [1, 1, 5, 2, 3]
+                        }
+                    }
+                },
+                digitalMarketing: {
+                    title: 'Marketing Digital',
+                    summary: 'Estrategias y ejecución para campañas de emailing, publicidad digital y offline.',
+                    phases: [
+                        { id: 'dm_strategy', name: '1. Estrategia', title: 'Fase de Estrategia y Planificación', summary: 'Definición de objetivos y selección de canales.', objectives: ['Definir KPIs.', 'Investigar público.', 'Seleccionar canales.', 'Plan de contenido.'], deliverables: ['Plan Marketing', 'Análisis', 'Personas', 'Calendario'] },
+                        { id: 'dm_creative_dev', name: '2. Creatividades', title: 'Fase de Desarrollo Creativo', summary: 'Creación de activos visuales y textuales.', objectives: ['Creatividades RRSS.', 'Plantillas emailing.', 'Materiales offline.', 'Coherencia de marca.'], deliverables: ['Creatividades', 'Plantillas', 'Diseños', 'Guía Marca'] },
+                        { id: 'dm_content_adapt', name: '3. Adaptación', title: 'Fase de Adaptación y Optimización', summary: 'Ajuste para maximizar impacto.', objectives: ['Optimizar por plataforma.', 'Pruebas A/B.', 'Segmentación.', 'Optimización móvil.'], deliverables: ['Contenido Adaptado', 'Tests A/B', 'Segmentos', 'Mobile Ready'] },
+                        { id: 'dm_campaign_exec', name: '4. Ejecución', title: 'Fase de Ejecución de Campañas', summary: 'Implementación y monitoreo inicial.', objectives: ['Lanzar emailing.', 'Activar Social Ads.', 'Distribuir offline.', 'Monitorear inicio.'], deliverables: ['Campañas Activas', 'Informes', 'Config', 'Monitoreo'] },
+                        { id: 'dm_analytics_opt', name: '5. Análisis', title: 'Fase de Análisis Continuo', summary: 'Datos y optimización en tiempo real.', objectives: ['Monitorear KPIs.', 'Análisis de datos.', 'Identificar mejoras.', 'Implementar ajustes.'], deliverables: ['Informes', 'Análisis', 'Recomendaciones', 'Ajustes'] },
+                        { id: 'dm_reporting', name: '6. Reporting', title: 'Fase de Reporting y Cierre', summary: 'Resultados finales y aprendizajes.', objectives: ['Informes finales.', 'Análisis ROI.', 'Documentar aprendizajes.', 'Cierre de proyecto.'], deliverables: ['Informe Final', 'Presentación', 'Lecciones', 'Factura'] },
+                        { id: 'dm_long_term', name: '7. Largo Plazo', title: 'Fase de Estrategia a Largo Plazo', summary: 'Planes de crecimiento continuo.', objectives: ['Identificar tendencias.', 'Planificar futuro.', 'Mantener relevancia.', 'Nuevas oportunidades.'], deliverables: ['Plan Futuro', 'Tendencias', 'Innovación', 'Roadmap'] }
+                    ],
+                    chartData: {
+                        labels: ['Estrategia', 'Creatividad', 'Implementación', 'Análisis', 'Gestión'],
+                        datasets: {
+                            dm_strategy: [5, 2, 1, 1, 4], dm_creative_dev: [2, 5, 2, 1, 3], dm_content_adapt: [1, 3, 2, 5, 2],
+                            dm_campaign_exec: [1, 2, 5, 3, 3], dm_analytics_opt: [1, 1, 2, 5, 3], dm_reporting: [2, 1, 1, 3, 5], dm_long_term: [5, 2, 1, 3, 4]
+                        }
+                    }
+                },
+                offlineDesign: {
+                    title: 'Diseño Offline',
+                    summary: 'Proceso integral para la creación de materiales gráficos destinados a medios impresos.',
+                    phases: [
+                        { id: 'od_briefing', name: '1. Briefing', title: 'Fase de Briefing', summary: 'Análisis de necesidades y concepto creativo.', objectives: ['Comprender la marca.', 'Definir formato.', 'Crear mood board.', 'Establecer presupuesto.'], deliverables: ['Briefing', 'Mood Board', 'Bocetos'] },
+                        { id: 'od_asset_prep', name: '2. Activos', title: 'Fase de Preparación de Activos', summary: 'Recopilación y organización de elementos.', objectives: ['Recopilar textos.', 'Obtener logotipos.', 'Seleccionar imágenes.', 'Organizar carpetas.'], deliverables: ['Textos', 'Activos Marca', 'Imágenes HD', 'Estructura'] },
+                        { id: 'od_image_proc', name: '3. Imágenes', title: 'Fase de Tratamiento de Imágenes', summary: 'Procesamiento para medios impresos.', objectives: ['Retoque y corrección.', 'Balance de color.', 'Conversión CMYK.', 'Optimización resolución.'], deliverables: ['Imágenes Editadas', 'Archivos CMYK'] },
+                        { id: 'od_layout', name: '4. Maquetación', title: 'Fase de Diseño y Maquetación', summary: 'Disposición de elementos en formato final.', objectives: ['Maquetar contenido.', 'Aplicar tipografías.', 'Composición visual.', 'Revisión de coherencia.'], deliverables: ['Maqueta Final', 'Guía Estilo'] },
+                        { id: 'od_proof_review', name: '5. Pruebas', title: 'Fase de Pruebas y Revisión', summary: 'Generación de proofs para aprobación.', objectives: ['Pruebas digitales.', 'Revisión con cliente.', 'Aprobación final.', 'Correcciones.'], deliverables: ['Proofs', 'Aprobación'] },
+                        { id: 'od_prepress', name: '6. Pre-prensa', title: 'Fase de Pre-prensa', summary: 'Preparación técnica para producción.', objectives: ['Verificar sangrados.', 'Incrustar fuentes.', 'Revisar modo color.', 'Empaquetar archivos.'], deliverables: ['PDF/X', 'Paquete Fuentes'] },
+                        { id: 'od_delivery', name: '7. Entrega', title: 'Fase de Impresión y Entrega', summary: 'Supervisión de producción y entrega final.', objectives: ['Coordinar imprenta.', 'Revisar calidad.', 'Entregar material.', 'Documentar proyecto.'], deliverables: ['Producto Final', 'Documentación'] }
+                    ],
+                    chartData: {
+                        labels: ['Estrategia', 'Creatividad', 'Implementación', 'Análisis', 'Gestión'],
+                        datasets: {
+                            od_briefing: [5, 3, 1, 1, 4], od_asset_prep: [2, 2, 2, 1, 3], od_image_proc: [1, 5, 2, 3, 2],
+                            od_layout: [2, 4, 5, 2, 3], od_proof_review: [1, 2, 1, 5, 4], od_prepress: [1, 1, 5, 3, 3], od_delivery: [1, 1, 3, 2, 5]
+                        }
+                    }
+                }
+            }
+        };
+
+        // =========================================
+        // ELEMENTOS DEL DOM
+        // =========================================
+        const textModal = document.getElementById('textModal');
+        const textModalTitle = document.getElementById('textModalTitle');
+        const textModalBody = document.getElementById('textModalBody');
+        
+        const portfolioModal = document.getElementById('portfolioModal');
+        const portfolioModalTitle = document.getElementById('portfolioModalTitle');
+        const portfolioGallery = document.getElementById('portfolioGallery');
+        
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        // =========================================
+        // FUNCIONES DE MODAL
+        // =========================================
+        const closeAllModals = () => {
+            document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
+            document.body.style.overflow = '';
+        };
+
+        document.querySelectorAll('[data-close-modal]').forEach(btn => {
+            btn.addEventListener('click', closeAllModals);
+        });
+
+        [textModal, portfolioModal].forEach(modal => {
+            if (modal) {
+                modal.addEventListener('click', e => {
+                    if (e.target === modal) closeAllModals();
+                });
+            }
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                if (lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                } else {
+                    closeAllModals();
+                }
+            }
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'ArrowRight') nextLightboxImage();
+                if (e.key === 'ArrowLeft') prevLightboxImage();
+            }
+        });
+
+        // =========================================
+        // LIGHTBOX
+        // =========================================
+        const openLightbox = (gallery, index) => {
+            currentGallery = gallery;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+        };
+
+        const updateLightbox = () => {
+            lightboxImage.src = currentGallery[currentIndex].src;
+            lightboxCounter.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
+        };
+
+        const nextLightboxImage = () => {
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            updateLightbox();
+        };
+
+        const prevLightboxImage = () => {
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            updateLightbox();
+        };
+
+        document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('active'));
+        document.getElementById('lightboxNext').addEventListener('click', nextLightboxImage);
+        document.getElementById('lightboxPrev').addEventListener('click', prevLightboxImage);
+        lightbox.addEventListener('click', e => {
+            if (e.target === lightbox) lightbox.classList.remove('active');
+        });
+
+        // =========================================
+        // RENDERIZAR SKILLS
+        // =========================================
+        const skillsGrid = document.getElementById('skillsGrid');
+        appData.skills.forEach(skill => {
+            const card = document.createElement('div');
+            card.className = 'skill-card';
+            card.innerHTML = `
+                <img src="${skill.image}" alt="${skill.title}" class="skill-card__image">
+                <h4 class="skill-card__title">${skill.title}</h4>
+            `;
+            card.addEventListener('click', () => {
+                textModalTitle.textContent = skill.title;
+                textModalBody.innerHTML = `
+                    <p>${skill.description}</p>
+                    <ul>${skill.points.map(p => `<li>${p}</li>`).join('')}</ul>
+                `;
+                textModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            skillsGrid.appendChild(card);
+        });
+
+        // =========================================
+        // RENDERIZAR PORTFOLIO
+        // =========================================
+        const portfolioGrid = document.getElementById('portfolioGrid');
+        appData.portfolio.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'portfolio-item';
+            card.innerHTML = `
+                <img src="${item.logo}" alt="${item.title}" class="portfolio-item__logo">
+                <h4 class="portfolio-item__title">${item.title}</h4>
+            `;
+            card.addEventListener('click', () => {
+                portfolioModalTitle.textContent = `Trabajos en ${item.title}`;
+                
+                if (item.media.length > 0) {
+                    portfolioGallery.innerHTML = item.media.map((m, idx) => `
+                        <div class="gallery-item" data-index="${idx}">
+                            <img src="${m.src}" alt="${m.caption}">
+                            <div class="gallery-item__caption">${m.caption}</div>
+                        </div>
+                    `).join('');
+                    
+                    portfolioGallery.querySelectorAll('.gallery-item').forEach((gi, idx) => {
+                        gi.addEventListener('click', () => openLightbox(item.media, idx));
+                    });
+                } else {
+                    portfolioGallery.innerHTML = '<p style="text-align: center; color: var(--text-muted); padding: 2rem;">Próximamente se añadirán trabajos de este proyecto.</p>';
+                }
+                
+                portfolioModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            portfolioGrid.appendChild(card);
+        });
+
+        // =========================================
+        // RENDERIZAR TRANSVERSALES
+        // =========================================
+        const transversalGrid = document.getElementById('transversalGrid');
+        appData.transversals.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'transversal-card';
+            card.innerHTML = `
+                <div class="transversal-card__icon">${item.icon}</div>
+                <h4 class="transversal-card__title">${item.title}</h4>
+            `;
+            card.addEventListener('click', () => {
+                textModalTitle.textContent = item.title;
+                textModalBody.innerHTML = item.content;
+                textModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            transversalGrid.appendChild(card);
+        });
+
+        // =========================================
+        // PROCESOS DE TRABAJO
+        // =========================================
+        let currentSectionId = 'webDevelopment';
+        let effortChart;
+
+        const sectionTitleEl = document.getElementById('sectionTitleDisplay');
+        const sectionSummaryEl = document.getElementById('sectionSummaryDisplay');
+        const phasesNav = document.getElementById('phasesNav');
+        const processDetails = document.getElementById('processDetails');
+        const phaseTitle = document.getElementById('phaseTitle');
+        const phaseSummary = document.getElementById('phaseSummary');
+        const phaseObjectives = document.getElementById('phaseObjectives');
+        const phaseDeliverables = document.getElementById('phaseDeliverables');
+
+        const updateChart = (phaseId) => {
+            if (!effortChart) return;
+            const chartData = appData.sections[currentSectionId].chartData;
+            const newData = chartData.datasets[phaseId];
+            if (newData) {
+                effortChart.data.datasets[0].data = newData;
+                effortChart.update();
+            }
+        };
+
+        const renderPhase = (phaseId) => {
+            const sectionData = appData.sections[currentSectionId];
+            const phaseData = sectionData.phases.find(p => p.id === phaseId);
+            if (!phaseData) return;
+
+            processDetails.classList.add('loading');
+            
+            setTimeout(() => {
+                phaseTitle.textContent = phaseData.title;
+                phaseSummary.textContent = phaseData.summary;
+                phaseObjectives.innerHTML = phaseData.objectives.map(o => `<li>${o}</li>`).join('');
+                phaseDeliverables.innerHTML = phaseData.deliverables.map(d => `<span class="deliverable-tag">${d}</span>`).join('');
+                
+                phasesNav.querySelectorAll('.phases-nav__btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.phaseId === phaseId);
+                });
+                
+                updateChart(phaseId);
+                processDetails.classList.remove('loading');
+            }, 200);
+        };
+
+        const renderSection = (sectionId) => {
+            currentSectionId = sectionId;
+            const sectionData = appData.sections[sectionId];
+            
+            document.querySelectorAll('.processes-nav__btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.section === sectionId);
+            });
+            
+            sectionTitleEl.textContent = sectionData.title;
+            sectionSummaryEl.textContent = sectionData.summary;
+            
+            phasesNav.innerHTML = '';
+            sectionData.phases.forEach(phase => {
+                const btn = document.createElement('button');
+                btn.className = 'phases-nav__btn';
+                btn.textContent = phase.name;
+                btn.dataset.phaseId = phase.id;
+                btn.addEventListener('click', () => renderPhase(phase.id));
+                phasesNav.appendChild(btn);
+            });
+            
+            if (sectionData.phases.length > 0) {
+                renderPhase(sectionData.phases[0].id);
+            }
+        };
+
+        // Setup Chart
+        const setupChart = () => {
+            if (typeof Chart === 'undefined') return;
+            const ctx = document.getElementById('effortChart').getContext('2d');
+            const initialData = appData.sections.webDevelopment.chartData;
+            
+            effortChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: initialData.labels,
+                    datasets: [{
+                        label: 'Distribución de Esfuerzo',
+                        data: initialData.datasets.web_discovery,
+                        backgroundColor: 'rgba(21, 94, 174, 0.2)',
+                        borderColor: '#155eae',
+                        pointBackgroundColor: '#155eae',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#155eae'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                            pointLabels: { font: { size: 11 }, color: '#7E8794' },
+                            ticks: { backdropColor: 'transparent', stepSize: 1, max: 5, min: 0 }
+                        }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        };
+
+        document.querySelectorAll('.processes-nav__btn').forEach(btn => {
+            btn.addEventListener('click', () => renderSection(btn.dataset.section));
+        });
+
+        setupChart();
+        renderSection('webDevelopment');
+
+        // =========================================
+        // TEMA OSCURO
+        // =========================================
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+
+        const applyTheme = (isDark) => {
+            document.body.classList.toggle('dark-mode', isDark);
+            moonIcon.classList.toggle('theme-toggle__icon--hidden', !isDark);
+            sunIcon.classList.toggle('theme-toggle__icon--hidden', isDark);
+        };
+
+        const savedTheme = localStorage.getItem('theme');
+        const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(savedTheme === 'dark' || (savedTheme === null && isSystemDark));
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = !document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            applyTheme(isDark);
+        });
+
+        // =========================================
+        // CONTACT BUBBLE
+        // =========================================
+        const contactToggle = document.getElementById('contactToggle');
+        const contactBubble = document.getElementById('contactBubble');
+        const contactOverlay = document.getElementById('contactOverlay');
+
+        if (contactToggle && contactBubble) {
+            contactToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isActive = contactBubble.classList.contains('active');
+                contactBubble.classList.toggle('active', !isActive);
+                contactOverlay.classList.toggle('active', !isActive);
+            });
+
+            contactOverlay.addEventListener('click', () => {
+                contactBubble.classList.remove('active');
+                contactOverlay.classList.remove('active');
+            });
+        }
+
+        // =========================================
+        // SCROLL NAV ACTIVE
+        // =========================================
+        const navLinks = document.querySelectorAll('nav a');
+        window.addEventListener('scroll', () => {
+            const fromTop = window.scrollY + 100;
+            navLinks.forEach(link => {
+                const section = document.querySelector(link.hash);
+                if (section && section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    });
+    </script>
+
+</body>
+</html>
